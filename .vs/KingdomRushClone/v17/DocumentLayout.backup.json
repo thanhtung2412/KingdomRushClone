@@ -1,0 +1,361 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\demogame\\KingdomRushClone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|e:\\demogame\\kingdomrushclone\\assets\\assets\\scripts\\barrack\\flagpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\barrack\\flagpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|e:\\demogame\\kingdomrushclone\\assets\\assets\\scripts\\barrack\\flag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\barrack\\flag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|e:\\demogame\\kingdomrushclone\\assets\\assets\\scripts\\barrack\\barrack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\barrack\\barrack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|e:\\demogame\\kingdomrushclone\\assets\\assets\\scripts\\audio\\soundtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\audio\\soundtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|e:\\demogame\\kingdomrushclone\\assets\\assets\\scripts\\audio\\musicmanager2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\assets\\scripts\\audio\\musicmanager2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\audio\\soundmanager2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\audio\\soundmanager2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\audio\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\audio\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\audio\\sound_enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\audio\\sound_enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\audio\\rung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\audio\\rung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\zonearea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\zonearea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\wingame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\wingame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\tesss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\tesss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\starmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\starmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\sliderrun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\sliderrun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\followcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\followcamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\manager\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\manager\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|E:\\demogame\\KingdomRushClone\\assets\\assets\\scripts\\manager\\menu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D87C752-ADFE-62E3-056F-0A8082E71FB1}|Assembly-CSharp.csproj|solutionrelative:assets\\assets\\scripts\\manager\\menu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\AdMobAdManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Assets\\Scripts\\AdMobAdManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FlagPos.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\FlagPos.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Barrack\\FlagPos.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\FlagPos.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Barrack\\FlagPos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:09:57.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Flag.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\Flag.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Barrack\\Flag.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\Flag.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Barrack\\Flag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:09:38.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Barrack.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\Barrack.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Barrack\\Barrack.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Barrack\\Barrack.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Barrack\\Barrack.cs",
+              "ViewState": "AgIAABcBAAAAAAAAAAAUwC4BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:07:51.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SoundTower.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundTower.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\SoundTower.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundTower.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\SoundTower.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAA3wCMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:07:38.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MusicManager2.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\MusicManager2.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\MusicManager2.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\MusicManager2.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\MusicManager2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:07:25.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SoundManager2.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundManager2.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\SoundManager2.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundManager2.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\SoundManager2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:06:22.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SoundManager.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\SoundManager.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\SoundManager.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\SoundManager.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwCIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:05:57.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sound_Enemy.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\Sound_Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\Sound_Enemy.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\Sound_Enemy.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\Sound_Enemy.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:05:51.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Rung.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\Rung.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Audio\\Rung.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Audio\\Rung.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Audio\\Rung.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T09:02:12.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ZoneArea.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\ZoneArea.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\ZoneArea.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\ZoneArea.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\ZoneArea.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:43:41.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Wingame.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Wingame.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Wingame.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Wingame.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Wingame.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:39:06.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Turret.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Turret.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Turret.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Turret.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Turret.cs",
+              "ViewState": "AgIAANUAAAAAAAAAAAAIwM0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:38:08.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Tesss.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Tesss.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Tesss.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Tesss.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Tesss.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:37:48.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StarMove.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\StarMove.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\StarMove.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\StarMove.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\StarMove.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:36:08.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SliderRun.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\SliderRun.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\SliderRun.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\SliderRun.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\SliderRun.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:25:56.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Node.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Node.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Node.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Node.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Node.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:23:48.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FollowCamera.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\FollowCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\FollowCamera.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\FollowCamera.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\FollowCamera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:23:39.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Explosion.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Explosion.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Explosion.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Explosion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:22:59.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Manager.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Manager\\Manager.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Manager\\Manager.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Manager\\Manager.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Manager\\Manager.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAjwLkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:22:04.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Menu_Manager.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Manager\\Menu_Manager.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\Manager\\Menu_Manager.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\Manager\\Menu_Manager.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\Manager\\Menu_Manager.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:19:02.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AdMobAdManager.cs",
+              "DocumentMoniker": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\AdMobAdManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Assets\\Scripts\\AdMobAdManager.cs",
+              "ToolTip": "E:\\demogame\\KingdomRushClone\\Assets\\Assets\\Scripts\\AdMobAdManager.cs",
+              "RelativeToolTip": "Assets\\Assets\\Scripts\\AdMobAdManager.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAmwEsAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T08:18:10.684Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
