@@ -1,0 +1,11 @@
+# Loại bỏ tất cả
+*
+
+# Giữ lại file .gitignore
+!.gitignore
+
+# Giữ lại thư mục Scripts và toàn bộ nội dung
+!Assets/
+!Assets/Scripts/
+!Assets/Scripts/**
+!Assets/Scripts/**/*.meta
