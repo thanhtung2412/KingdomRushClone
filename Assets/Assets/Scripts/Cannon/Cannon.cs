@@ -7,23 +7,22 @@ public class Cannon : MonoBehaviour
 {
 
     [HideInInspector]
-    public GameObject CurrentZone, NextZone; // vung ban' hien tai va vung ban cua  Cannon sau khi update
+    public GameObject CurrentZone, NextZone; 
 
-    public int Index, next_index;// chi so tien tai cua Cannon
+    public int Index, next_index;
     [HideInInspector]
-    public List<GameObject> enemies = new List<GameObject>(); // Danh sách Enemy có thể tấn công
-    private GameObject target; // mục tiêu để tấn công
-    public float coldown;// thời gian giữa các lần bắn
-    public int Dame;// Dame bắn
+    public List<GameObject> enemies = new List<GameObject>();
+    private GameObject target; 
+    public float coldown;
+    public int Dame;
     private float searchvalue = 0.5f;
-    public Transform pos_bullet; // vi tri sinh ra đạn
-    private Animator _anim;// Animation của Cannon
+    public Transform pos_bullet; 
+    private Animator _anim;
     [HideInInspector]
-    public GameObject Interface = null; // Giao dien Update, Sell....
+    public GameObject Interface = null; 
     [Header("Image bullet dùng để Reload sau khi bắn")]
-    public GameObject bulletImage; // obj viên đạn dùng để nạp đạn
-    private bool isShooting = false;// có đang trong trạng thái bắn hay không
-    //----------UI Interface-------------
+    public GameObject bulletImage; 
+    private bool isShooting = false;
     private Canvas _canvas;
     private Text Speedtext, dametext, rangetext;
     void Start()
@@ -55,8 +54,8 @@ public class Cannon : MonoBehaviour
         #endregion
         _anim = GetComponent<Animator>();
         SoundTower._instance.CannonTower();
-        Upgrade_property(); // Kiểm tra thông tin Upgrade ở panel select
-        int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 15)), 1, 150);// đặt layer theo tọa độ Y
+        Upgrade_property(); 
+        int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 15)), 1, 150);
         GetComponent<SpriteRenderer>().sortingOrder = layer;
     }
     private void Upgrade_property()
@@ -74,8 +73,8 @@ public class Cannon : MonoBehaviour
         {
             Dame += 10;
         }
-    }// Kiểm tra thông tin Upgrade ở panel select
-    void OnMouseDown() // bật tắt giao diện Upgrade
+    }
+    void OnMouseDown() 
     {
         SoundTower._instance.Click();
         #region Level Cannon <3
@@ -130,9 +129,9 @@ public class Cannon : MonoBehaviour
     {
         if (Manager.isFinishing == true) return;
         RemoveNull();
-        if (enemies.Count > 0) // neu tim thay Enemy
+        if (enemies.Count > 0)
         {
-            if (isShooting == false)// nếu đang ko trong trạng thái bắn thì được phép bắn
+            if (isShooting == false)
             {
                 target = enemies[0];
                 isShooting = true;
@@ -140,7 +139,6 @@ public class Cannon : MonoBehaviour
                 Shoot();
             }
         }
-        // thực hiện tắt UI_infomation của nhà pháo
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition).origin, Vector3.zero);
         if (hit.collider == null)
         {
@@ -163,21 +161,19 @@ public class Cannon : MonoBehaviour
         }
     }
 
-    private void Shoot()// Hàm bắn đạn
+    private void Shoot()
     {
         SoundTower._instance.Cannon_Fire();
         _anim.SetTrigger("Fire");
     }
-    private void SetShootingFalse()// đặt lại trạng thái isShooting=false
+    private void SetShootingFalse()
     {
         isShooting = false;
     }
-    // Hàm được gọi để sinh ra đạn
     public void ShowImageBullet()
     {
         InstanceBullet(pos_bullet);
     }
-    //--Ham Tao ra đạn tại vị trí pos
     private void InstanceBullet(Transform pos)
     {
         GameObject Bullet = Instantiate(Resources.Load("Cannon/Bullet" + Index), pos.transform.position, Quaternion.identity) as GameObject;
@@ -218,19 +214,19 @@ public class Cannon : MonoBehaviour
         return aux;
     }
     #endregion
-    public void AddEnemy(GameObject enemy)// thêm Enemy vào List
+    public void AddEnemy(GameObject enemy)
     {
         if (!enemies.Contains(enemy))
             enemies.Add(enemy);
     } 
-    public void RemoveEnemy(GameObject enemy)// Xóa Enemy khỏi List
+    public void RemoveEnemy(GameObject enemy)
     {
         if (enemy != null)
         {
             enemies.Remove(enemy);
         }
     } 
-    private void RemoveNull()// Xóa Enemy Null khỏi List
+    private void RemoveNull()
     {
         for (int i = 0; i < enemies.Count; i++)
         {
@@ -240,19 +236,18 @@ public class Cannon : MonoBehaviour
             }
         }
     } 
-    public void ShowNextZone(bool turn)// Bật/tắt tầm đánh sau khi upgrade
+    public void ShowNextZone(bool turn)
     {
         NextZone.SetActive(turn);
     } 
-    public void ShowCurrentZone(bool turn)// Bật/tắt tầm đánh hiện tại
+    public void ShowCurrentZone(bool turn)
     {
         CurrentZone.SetActive(turn);
     }
-    public void ReloadBullet()//Hiển thị ảnh Đạn dùng để reload
+    public void ReloadBullet()
     {
         bulletImage.SetActive(true);
     } 
-    //--------Hiển thị các chỉ số của Cannon---------------
     private void ShowUI_Infomation()
     {
         _canvas.enabled = true;

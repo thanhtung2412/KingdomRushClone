@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZoneClick : MonoBehaviour {
 
-    public GameObject Point;// điểm đặt cowf Flag mới
+    public GameObject Point;
     public Transform flag;
     private List<KnightController> _knights = new List<KnightController>();
 	void Start ()
@@ -18,8 +18,6 @@ public class ZoneClick : MonoBehaviour {
             flag = transform.parent.gameObject.GetComponent<Mage_Golem>().Flag;
 
     }
-	
-	// Update is called once per frame
 
     void OnMouseDown()
     {

@@ -4,35 +4,34 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //------ cac thuoc tinh
-    public float maxHeal;// Máu của Enemy
+    public float maxHeal;
     public float currentHeal { get; set; }
-    public int Dame;// Dame Enemy
-    public float movespeed;// tốc độ di chuyển
-    public int Armor;// giáp
-    public int ResistanMagic;// kháng phép
+    public int Dame;
+    public float movespeed;
+    public int Armor;
+    public int ResistanMagic;
     private float searchvalue = 0.1f;
-    //------------
-    private Transform slider; // Thanh máu
-    private Animator _anim; // Animation của Enemy
-    private Transform target;// check Flip với Target nay
+
+    private Transform slider;
+    private Animator _anim;
+    private Transform target;
     public bool AllowMove = true;
-    public bool FightToDeath { get; set; } // Kiểm tra xem Enemy này có đang thực hiện tấn công Knight ko
+    public bool FightToDeath { get; set; } 
     public bool isDead = false;
-    //-----Path
-    public GameObject Path; // GameObject chứa các điểm để Enemy đi theo
-    private List<GameObject> Paths = new List<GameObject>(); // Danh sách các path có trên bản đồ
-    public List<Vector3> Paths_Pos = new List<Vector3>(); // vị trí của các path trong DS paths
-    private Vector3 offset; // độ dịch với vị trí path
-    public Vector3 PointToMove; // vị trí path gần nhất để đi tới
-    public GameObject _KnightToFight = null; // Knight cần phải tấn công
-    public bool StartAttack; // =true thì sẽ tấn công Knight
-    public bool isRange; // là Enemy đánh gần hay xa
-    private bool isAttacking = false; // có đang tấn công hay ko
-    public float radius; // tầm đánh
-    public GameObject bloodEffect; // Hiệu ứng vũng máu
-    public Transform blood_pos; //vị trí vũng máu khi Enemy chết
-    public int coin; // số tiền kiếm đc khi giết Enemy
+
+    public GameObject Path; 
+    private List<GameObject> Paths = new List<GameObject>(); 
+    public List<Vector3> Paths_Pos = new List<Vector3>(); 
+    private Vector3 offset; 
+    public Vector3 PointToMove; 
+    public GameObject _KnightToFight = null; 
+    public bool StartAttack; 
+    public bool isRange;
+    private bool isAttacking = false;
+    public float radius;
+    public GameObject bloodEffect; 
+    public Transform blood_pos; 
+    public int coin; 
     private SpriteRenderer _sprite;
     void Start()
     {
@@ -42,14 +41,14 @@ public class EnemyController : MonoBehaviour
         currentHeal = maxHeal;
         slider = transform.Find("HealBar").transform.Find("slider").transform;
         _anim = GetComponent<Animator>();
-        _anim.SetInteger("Change", 0);// trang thai mac dinh dau tien la chay
+        _anim.SetInteger("Change", 0);
         FindPath();
-        if (isRange) // Nếu là Enemy bắn cung thì chạy hàm tìm kiếm và tấn công Knight
+        if (isRange) 
         {
             InvokeRepeating("FindKnight", 0, 1f);
         }
     }
-    public void FindPath()    // Tìm vị trí path trên bản đồ 
+    public void FindPath()   
     {
         for (int i = 0; i < Path.transform.childCount; i++)
         {
@@ -58,7 +57,6 @@ public class EnemyController : MonoBehaviour
                 Paths.Add(Path.transform.GetChild(i).gameObject);
             }
         }
-        // Paths = GameObject.FindGameObjectsWithTag("Path");
         foreach (GameObject path in Paths)
         {
             offset = new Vector3(Random.Range(0.05f, 0.1f), Random.Range(0.05f, 0.3f), 0);
@@ -66,34 +64,34 @@ public class EnemyController : MonoBehaviour
             Paths_Pos.Add(pathpos);
         }
     }
-    private void MoveToPath()    // Ham di chuyen den path
+    private void MoveToPath()   
     {
         float neareset_path = 100f;
-        for (int i = 0; i < Paths_Pos.Count; i++) // chay xong vong lap nay se tim duoc path ngan nhat
+        for (int i = 0; i < Paths_Pos.Count; i++) 
         {
             float distance = Vector2.Distance(transform.position, Paths_Pos[i]);
             if (distance <= neareset_path)
             {
                 neareset_path = distance;
-                PointToMove = Paths_Pos[i]; //toa do path ngan nhat
+                PointToMove = Paths_Pos[i]; 
             }
         }
-        //-- di chuyen den path
-        if (transform.position != PointToMove) // neu khac toa do voi điểm gần nhất thì di chuyển đến nó
+
+        if (transform.position != PointToMove) 
         {
-            CheckFlip(PointToMove); // check Flip voi diem Path
-            transform.position = Vector2.MoveTowards(transform.position, PointToMove, Time.deltaTime * movespeed);// di chuyen den path
-            if (transform.position == Paths_Pos[Paths_Pos.Count - 1]) // Nếu di chuyển đến path cuối cùng thì sẽ trừ máu Player
+            CheckFlip(PointToMove); 
+            transform.position = Vector2.MoveTowards(transform.position, PointToMove, Time.deltaTime * movespeed);
+            if (transform.position == Paths_Pos[Paths_Pos.Count - 1]) 
             {
                 Manager._instance.TakeHeart();
                 Destroy(gameObject);
             }
-            if (transform.position.y >= PointToMove.y && Mathf.Abs(transform.position.x - PointToMove.x) <= 0.2f && Mathf.Abs(transform.position.y - PointToMove.y) > 0.2f) // Chạy xuống
+            if (transform.position.y >= PointToMove.y && Mathf.Abs(transform.position.x - PointToMove.x) <= 0.2f && Mathf.Abs(transform.position.y - PointToMove.y) > 0.2f) 
                 _anim.SetInteger("Change", 2);
-            else if (transform.position.y < PointToMove.y && Mathf.Abs(transform.position.x - PointToMove.x) <= 0.2f && Mathf.Abs(transform.position.y - PointToMove.y) > 0.2f) // Chạy lên
+            else if (transform.position.y < PointToMove.y && Mathf.Abs(transform.position.x - PointToMove.x) <= 0.2f && Mathf.Abs(transform.position.y - PointToMove.y) > 0.2f) 
                 _anim.SetInteger("Change", 1);
             else
-                _anim.SetInteger("Change", 0);// Trạng thái chạy ngang phải
+                _anim.SetInteger("Change", 0);
         }
         else
         {
@@ -103,39 +101,39 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (Manager.isFinishing == true) { _anim.enabled = false; return; }
-        // đặt layer theo vị trí tọa độ Y
+ 
         int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 15)), 1, 150);
         _sprite.sortingOrder = layer;
         if (isDead) return;
-        if (!StartAttack) //Nếu không phải tấn công Knight thì sẽ di chuyển theo Path
+        if (!StartAttack) 
         {
             MoveToPath();
         }
-        else// ngược lại sẽ tấn công Knight
+        else
         {
-            if (_KnightToFight == null) // Neu Knight bi giet thì nó sẽ tiếp tục di chuyển đến path
+            if (_KnightToFight == null) 
             {
                 StartAttack = false;
                 FightToDeath = false;
             }
-            else // Nếu Knight còn sống thì tấn công
+            else 
             {
-                if (!isRange && !isAttacking) // Dành cho Enemy đánh gần
+                if (!isRange && !isAttacking) 
                 {
                     isAttacking = true;
                     AttackKnight();
                     Invoke("SetAttackingFalse", 1f);
                 }
-                else if (isRange && !isAttacking) // dành cho Enemy đánh xa
+                else if (isRange && !isAttacking) 
                 {
                     float distance = Vector2.Distance(transform.position, _KnightToFight.transform.position);
-                    if (distance > 0.3f && distance <= radius) // nếu khoảng cách tấn công trong khoảng 0.3-radius thì bắn cung
+                    if (distance > 0.3f && distance <= radius) 
                     {
                         isAttacking = true;
                         ShootKnight();
                         Invoke("SetAttackingFalse", 1f);
                     }
-                    else if (distance <= 0.3f)// ngược lại thì sẽ tấn công bằng dao
+                    else if (distance <= 0.3f)
                     {
                         isAttacking = true;
                         AttackKnight();
@@ -149,11 +147,11 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    private void SetAttackingFalse() // đặt isAttacking =false
+    private void SetAttackingFalse() 
     {
         isAttacking = false;
     }
-    private void CheckFlip(Vector3 pos) // kiểm tra việc quay mặt với tọa độ pos
+    private void CheckFlip(Vector3 pos) 
     {
         if (transform.position.x <= pos.x)
         {
@@ -173,15 +171,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    public void TakeDamePhysic(int _dame) // Hàm nhận Dame từ sát thương vật lý
+    public void TakeDamePhysic(int _dame) 
     {
-        int truedame = _dame - Armor; // Dame sau khi da tru giap
+        int truedame = _dame - Armor; 
         if (currentHeal > 0)
         {
             Sound_Enemy._instance.Hurt();
             currentHeal = currentHeal - truedame;
             if (currentHeal > 0)
-                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z); // thay doi thanh mau
+                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z); 
             else
             {
                 slider.transform.localScale = new Vector3(0, 1, 1);
@@ -191,14 +189,14 @@ public class EnemyController : MonoBehaviour
         else
             Die();
     }
-    public void TakeDamageMagic(int _dame)// Hàm nhận Dame từ sát thương vật lý
+    public void TakeDamageMagic(int _dame)
     {
-        int truedame = _dame - ResistanMagic; // Dame sau khi da tru khang phep
+        int truedame = _dame - ResistanMagic; 
         if (currentHeal > 0)
         {
             currentHeal = currentHeal - truedame;
             if (currentHeal > 0)
-                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z); // thay doi thanh mau
+                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z); 
             else
             {
                 slider.transform.localScale = new Vector3(0, 1, 1);
@@ -211,22 +209,22 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         Sound_Enemy._instance.Die();
-        _anim.SetInteger("Change", 6); // ANimation die   
+        _anim.SetInteger("Change", 6); 
         isDead = true;
         Instantiate(bloodEffect, blood_pos.position, Quaternion.identity);
         Manager.money += coin;
         Manager._instance.setcoin();
         Destroy(gameObject, 1f);
     }
-    private void AttackKnight()// Hàm tấn công tầm gần
+    private void AttackKnight()
     {
         _anim.SetInteger("Change", 4);
         Invoke("GiveDame", 0.5f);
         CheckFlip(_KnightToFight.gameObject.transform.position);
     }
-    public void GiveDame() // Hàm gây dame cho Knight
+    public void GiveDame() 
     {
-        if (_KnightToFight != null) // Neu Knight con song
+        if (_KnightToFight != null) 
         {
             if (_KnightToFight.GetComponent<KnightController>() != null)
             {
@@ -257,7 +255,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    //-------------Range Enemy--------------
+
     #region Ham truyen tham so cho mui ten bay
     private float getminSpeed()
     {
@@ -283,7 +281,7 @@ public class EnemyController : MonoBehaviour
         return aux;
     }
     #endregion
-    private void FindKnight() // Tìm Knight để tấn công
+    private void FindKnight() 
     {
         GameObject[] Knights = GameObject.FindGameObjectsWithTag("Knight");
         float nearestDistance = 10f;
@@ -301,7 +299,7 @@ public class EnemyController : MonoBehaviour
             StartAttack = true;
         }
     }
-    private void ShootKnight() // thực hiện việc bắn tên vào mục tiêu
+    private void ShootKnight() 
     {
         CheckFlip(_KnightToFight.transform.position);
         _anim.SetInteger("Change", 5);

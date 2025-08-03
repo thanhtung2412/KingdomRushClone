@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class Lighting : MonoBehaviour
 {
-
-    public List<GameObject> enemies = new List<GameObject>();// danh sách các Enemy trong tầm đánh
-    public List<GameObject> enemies2 = new List<GameObject>(); // là bản sao của List enemies
-    public List<GameObject> enemyNearest = new List<GameObject>(); // Danh sách Enemy gần nhất
+    public List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies2 = new List<GameObject>();
+    public List<GameObject> enemyNearest = new List<GameObject>();
     private Animator _anim;
-    public GameObject pos;// vị trí sinh ra tia sét
+    public GameObject pos;
     public int Dame;
     public float cowdown;
     public bool isShooting = false;
     private GameObject target;
     private GameObject nearTarget;
-    //private GameObject target;
-    //----------More Light---------------
+
     public bool morelight = false;
     public int levelLight { get; set; }
-    public int numberTime = 0; // so lan nhay cua Lighting ==0 la ko nhay ==1 la nhay sang 1 muc tieu
+    public int numberTime = 0;
     private int number = 0;
     private GameObject Interface = null;
-    //--------------------AREAN LIGHTING DAME------------
     public GameObject[] effects;
     public bool isAreaLight;
     public int levelArea { get; set; }
@@ -32,11 +29,10 @@ public class Lighting : MonoBehaviour
     void Start()
     {
         _anim = GetComponent<Animator>();
-        int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 15)), 1, 150);// đặt layer theo trục Y
+        int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 15)), 1, 150);
         GetComponent<SpriteRenderer>().sortingOrder = layer;
         SoundTower._instance.CannonTower();
     }
-    // Update is called once per frame
     void Update()
     {
         RemoveNull();
@@ -156,20 +152,18 @@ public class Lighting : MonoBehaviour
             }
         }
     }
-    public void Shoot()// THực hiện việc bắn laze
+    public void Shoot()
     {
 
-      //  FindNearEnemy();
     }
-    private void SetShootingFalse()// đặt lại giá trị isShooting =false
+    private void SetShootingFalse()
     {
         isShooting = false;
     }
-    public void InStance_Light1()    // SInh ra các tia sét
+    public void InStance_Light1()  
     {
         SoundTower._instance.Light();
-        InStance_Light2(target, pos); // sinh ra tia sét đầu tiên từ trụ đến mục tiêu đầu tiên
-        //--------------------AREAN DAME----------------------
+        InStance_Light2(target, pos); 
         if (isAreaLight)
         {
             if (levelArea == 1) { Area_Dame = Area_dame1; }
@@ -179,7 +173,7 @@ public class Lighting : MonoBehaviour
         }
         if (enemyNearest.Count != 0)
         {
-            for (int i = 1; i < enemyNearest.Count; i++)// sinh ra tia sét đến các mục tiêu khác
+            for (int i = 1; i < enemyNearest.Count; i++)
             {
                 if (enemyNearest[i] != null)
                 {
@@ -188,15 +182,15 @@ public class Lighting : MonoBehaviour
             }
         }
     }
-    private void InStance_Light2(GameObject target, GameObject pos)// sinh ra tia sét tại 1 vị trí nào đó và hướng về phía mục tiêu
+    private void InStance_Light2(GameObject target, GameObject pos)
     {
         GameObject _Light = Instantiate(Resources.Load("Cannon/Light"), pos.transform.position, Quaternion.identity) as GameObject;
         Light _light = _Light.GetComponent<Light>();
         _light.Target = target;
         _light.dame = Dame;
     }
-    //---------------------------AREA DAME---------------------------------------
-    private void AreaDame(int dame) // sinh ra dame diện rộng
+
+    private void AreaDame(int dame)
     {
         Effect_AreaLight();
         Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 2f);
@@ -208,7 +202,7 @@ public class Lighting : MonoBehaviour
             }
         }
     }
-    private void Effect_AreaLight()// bật hiệu ứng sinh dame diện rộng
+    private void Effect_AreaLight()
     {
         foreach (GameObject effect in effects)
         {

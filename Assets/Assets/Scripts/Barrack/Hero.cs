@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    // Các thuộc tính cơ bản của Hero
-    public int dame; // Dame tấn công
-    public int armor;// giáp
-    public float moveSpeed;// tốc độ di chuyển
-    public float maxHeal;// máu tối đa
-    public float currentHeal;// máu hiện tại
-    public int timerespawn; // thời gian hồi sinh
-    private Transform slider;// thanh máu
-    public float coldown;//thời gian giữa các lần tấn công
+    public int dame; 
+    public int armor;
+    public float moveSpeed;
+    public float maxHeal;
+    public float currentHeal;
+    public int timerespawn; 
+    private Transform slider;
+    public float coldown;
 
-    public GameObject target = null; // mục tiêu để tấn công
-    private Animator _anim;// Animation của Hero
-    public Vector3 positionFlag { get; set; } // vị trí mà Hero sẽ di chuyển theo
-    public List<GameObject> ListEnemy = new List<GameObject>();// List các Enemy trong tầm đánh
-    public GameObject _click;// biểu tượng click chuột để di chuyển Hero đến vị trí click
-    public float radius;// tầm tìm kiếm mục tiêu
+    public GameObject target = null; 
+    private Animator _anim;
+    public Vector3 positionFlag { get; set; } 
+    public List<GameObject> ListEnemy = new List<GameObject>();
+    public GameObject _click;
+    public float radius;
     public bool isDead = false;
     public EnemyController _target = null;
-    public bool isAttacking = false;// có trong trạng thái tấn công hay không
+    public bool isAttacking = false;
     public bool allowMove = true;
-    private float timeregend = 0;// biến đếm thời gian hồi máu
-    public bool MustReturn = false; // nếu =true thì sẽ thôi ko tìm mục tiêu tấn công nữa
+    private float timeregend = 0;
+    public bool MustReturn = false; 
     private EnemyController _enemycode;
-    private bool waclick = false;// xác định xem Hero đã đc click chuột vào hay chưa
-    private GameObject click = null;// gameobj biểu tượng di chuyển
+    private bool waclick = false;
+    private GameObject click = null;
     private SpriteRenderer _sprite;
     private Canvas _canvas;
     private bool isShooting = false;
@@ -52,7 +51,7 @@ public class Hero : MonoBehaviour
         slider = transform.Find("HealBar").transform.Find("slider");
         _anim = GetComponent<Animator>();
     }
-    private void Regend() // Hàm tự động hồi máu khi không có mục tiêu tấn công
+    private void Regend() 
     {
         timeregend += Time.deltaTime;
         if (timeregend >= 3)
@@ -70,7 +69,7 @@ public class Hero : MonoBehaviour
             }
         }
     }
-    void UpdateTarget() //Tìm và chọn mục tiêu để tấn công
+    void UpdateTarget() 
     {
         if (target == null || allowMove == true) MustReturn = false;
         if (allowMove == false) return;
@@ -83,17 +82,17 @@ public class Hero : MonoBehaviour
                 _enemycode = enemy.GetComponent<EnemyController>();
             }
             if (enemy == null) return;
-            float range = Vector2.Distance(transform.position, enemy.transform.position); // khoang cach giua Knight va Enemy
-            if (range <= radius && _enemycode.currentHeal > 0)// neu khoang cach < radius  thi them vao List
+            float range = Vector2.Distance(transform.position, enemy.transform.position); 
+            if (range <= radius && _enemycode.currentHeal > 0)
             {
-                if (!ListEnemy.Contains(enemy) && enemy != null) { ListEnemy.Add(enemy); } // neu List chua co phan tu nay thi them vao
+                if (!ListEnemy.Contains(enemy) && enemy != null) { ListEnemy.Add(enemy); } 
 
             }
-            else // neu o ngoai radius thi loai khoi List
+            else 
                 ListEnemy.Remove(enemy);
         }
         RemoveNull();
-        // Chạy ListeEnemy xem phần tử nào đã lock target là chính Obj thì sẽ return
+      
         foreach (GameObject enemy in ListEnemy)
         {
             if (enemy == null) return;
@@ -105,8 +104,8 @@ public class Hero : MonoBehaviour
             }
         }
         if (MustReturn == true) return;
-        //------KIỂM TRA LISTENEMY để chọn target-----------
-        if (ListEnemy.Count == 1) // neu trong List chi co 1 thi tan cong Enemy do
+  
+        if (ListEnemy.Count == 1)
         {
             isAttacking = false;
             if (ListEnemy[0] == null) return;
@@ -115,7 +114,7 @@ public class Hero : MonoBehaviour
             {
                 MustReturn = true;
             }
-            else if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && ListEnemy[0].GetComponent<EnemyController>()._KnightToFight == null)// nếu ko phải đánh tới chết và enemy chưa locktarget thì locktarget cho enemy là chính obj
+            else if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && ListEnemy[0].GetComponent<EnemyController>()._KnightToFight == null)
             {
                 isAttacking = false;
                 ListEnemy[0].GetComponent<EnemyController>()._KnightToFight = this.gameObject;
@@ -130,7 +129,7 @@ public class Hero : MonoBehaviour
             for (int i = 0; i <= 1; i++)
             {
 
-                if (CheckEnemyToFight4Ever(this, ListEnemy[i]) == true) // neu check duoc phai danh toi chet enemy nay thi tan cong
+                if (CheckEnemyToFight4Ever(this, ListEnemy[i]) == true)
                 {
                     print("da chon duoc Enemy o vong for thu" + i);
                     SetTarget(ListEnemy[i]);
@@ -147,7 +146,7 @@ public class Hero : MonoBehaviour
                 }
 
             }
-            // neu thay ca 2 deu da co Knight chon tan cong den chet thi chon con thu 2
+
             if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && !CheckEnemyToFight4Ever(this, ListEnemy[1]) && target == null)
             {
                 SetTarget(ListEnemy[1]);
@@ -159,11 +158,10 @@ public class Hero : MonoBehaviour
             RemoveNull();
             isAttacking = false;
             if (ListEnemy[0] == null || ListEnemy[1] == null || ListEnemy[2] == null) return;
-            // Kiểm tra xem tất cả các Enemy nếu có 1 con locktarget là obj này thì break;
             foreach (GameObject enemy in ListEnemy)
             {
                 // RemoveNull();
-                if (CheckEnemyToFight4Ever(this, enemy)) // neu check fai danh toi chet thi tan cong enemy nay
+                if (CheckEnemyToFight4Ever(this, enemy)) 
                 {
                     SetTarget(enemy);
                     MustReturn = true;
@@ -171,11 +169,10 @@ public class Hero : MonoBehaviour
                 }
             }
             if (MustReturn == true) return;
-            // Nếu ko bị lock thì chọn enemy để lock
             foreach (GameObject enemy in ListEnemy)
             {
                 // RemoveNull();
-                if (!CheckEnemyToFight4Ever(this, enemy) && enemy.GetComponent<EnemyController>()._KnightToFight == null) // neu check fai danh toi chet thi tan cong enemy nay
+                if (!CheckEnemyToFight4Ever(this, enemy) && enemy.GetComponent<EnemyController>()._KnightToFight == null)
                 {
                     if (MustReturn == true) return;
                     enemy.GetComponent<EnemyController>()._KnightToFight = this.gameObject;
@@ -201,24 +198,24 @@ public class Hero : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             if (enemy == null) return;
-            float range = Vector2.Distance(transform.position, enemy.transform.position); // khoang cach giua Knight va Enemy
-            if (range <= radius)// neu khoang cach < radius  thi them vao List
+            float range = Vector2.Distance(transform.position, enemy.transform.position); 
+            if (range <= radius)
             {
-                if (!ListEnemy.Contains(enemy) && enemy != null) { ListEnemy.Add(enemy); } // neu List chua co phan tu nay thi them vao
+                if (!ListEnemy.Contains(enemy) && enemy != null) { ListEnemy.Add(enemy); }
             }
-            else // neu o ngoai radius thi loai khoi List
+            else 
                 ListEnemy.Remove(enemy);
         }
         foreach (GameObject enemy in flies)
         {
             if (enemy == null) return;
-            float range = Vector2.Distance(transform.position, enemy.transform.position); // khoang cach giua Knight va Enemy
-            if (range <= radius)// neu khoang cach < radius  thi them vao List
+            float range = Vector2.Distance(transform.position, enemy.transform.position); 
+            if (range <= radius)
             {
                 if (!ListEnemy.Contains(enemy) && enemy != null)
-                { ListEnemy.Add(enemy); } // neu List chua co phan tu nay thi them vao
+                { ListEnemy.Add(enemy); } 
             }
-            else // neu o ngoai radius thi loai khoi List
+            else 
                 ListEnemy.Remove(enemy);
         }
         RemoveNull();
@@ -227,22 +224,22 @@ public class Hero : MonoBehaviour
             target = ListEnemy[0];
         }
     }
-    private void SetTarget(GameObject enemy) // đặt giá trị cho biến target, target là mục tiêu Knight sẽ tấn công
+    private void SetTarget(GameObject enemy) 
     {
         target = enemy;
         _target = target.GetComponent<EnemyController>();
     }
-    private bool CheckEnemyToFight4Ever(Hero knight, GameObject enemy) // Kiểm tra xem Hero có phải đánh nhau đến chết với Enemy này không
+    private bool CheckEnemyToFight4Ever(Hero knight, GameObject enemy)
     {
         GameObject KnightToFight = enemy.GetComponent<EnemyController>()._KnightToFight;
-        if (KnightToFight == knight.gameObject) // neu Nếu KnightToFight ko phải là Obj này
+        if (KnightToFight == knight.gameObject) 
         {
             return true;
         }
         else
             return false;
     }
-    private void setISAttackingfalse()// đặt lại giá trị isAttacking = false
+    private void setISAttackingfalse()
     {
         isAttacking = false;
         _anim.SetInteger("Change", 0);
@@ -252,7 +249,7 @@ public class Hero : MonoBehaviour
         isShooting = false;
         _anim.SetInteger("Change", 0);
     }
-    public void CheckFlipWith(GameObject enemy) // thực hiện việc quay trái phải với obj nào đó
+    public void CheckFlipWith(GameObject enemy) 
     {
         if (transform.position.x <= enemy.transform.position.x)
         {
@@ -279,16 +276,16 @@ public class Hero : MonoBehaviour
         _sprite.sortingOrder = layer;
 
         if (isDead) return;
-        if (waclick == true && Input.GetMouseButtonUp(0)) // thực hiện việc tạo ra obj click chuột dùng để di chuyển Hero
+        if (waclick == true && Input.GetMouseButtonUp(0)) 
         {
             waclick = false;
             if (click == null)
                 click = Instantiate(_click) as GameObject;
         }
-        if (target == null) // Nếu không có mục tiêu để tấn công 
+        if (target == null) 
         {
             isAttacking = false;
-            if (gameObject.transform.position == positionFlag) //khi đang ở vị trí của Flag sẽ có thể hồi máu
+            if (gameObject.transform.position == positionFlag) 
             {
                 if (!isAttacking)
                 {
@@ -297,7 +294,7 @@ public class Hero : MonoBehaviour
                 RegendHeal();
                 allowMove = true;
             }
-            else// ngược lại sẽ phải di chuyển đến Flag
+            else
             {
                 if (transform.position.x <= positionFlag.x)
                 {
@@ -320,13 +317,13 @@ public class Hero : MonoBehaviour
                 _anim.SetInteger("Change", 1);
             }
         }
-        else //khi thấy mục tiêu sẽ di chuyển đến đó
+        else 
         {
-            if (gameObject.transform.position == positionFlag) // khi dang o vi tri dat Flag sẽ được phép di chuyển
+            if (gameObject.transform.position == positionFlag) 
             {
                 allowMove = true;
             }
-            else// di chuyển đến Flag
+            else
             {
                 if (allowMove == false)
                 {
@@ -353,7 +350,7 @@ public class Hero : MonoBehaviour
 
             if (!isRange)
             {
-                if (Vector2.Distance(transform.position, target.transform.position) > 1f) // neu enemy ra khoi tam cua Knight thi cho no = null
+                if (Vector2.Distance(transform.position, target.transform.position) > 1f) 
                 {
                     target = null;
                     return;
@@ -361,14 +358,14 @@ public class Hero : MonoBehaviour
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.transform.position) > 1.2f) // neu enemy ra khoi tam cua Knight thi cho no = null
+                if (Vector2.Distance(transform.position, target.transform.position) > 1.2f) 
                 {
                     target = null;
                     return;
                 }
             }
-            CheckFlipWith(target);// check quay mat theo huong enemy
-                                  //  if (Vector2.Distance(transform.position, target.transform.position) > 1f) return;
+            CheckFlipWith(target);
+                                  
             float distance = Vector2.Distance(transform.position, target.transform.position);
             if (isRange && distance > 0.3f)
             {
@@ -396,9 +393,9 @@ public class Hero : MonoBehaviour
                     }
                 }
             }
-            if (transform.localScale.x == 1)// Nếu đang hướng mặt sang phải
+            if (transform.localScale.x == 1)
             {
-                if (transform.position != target.transform.position + new Vector3(-0.2f, 0, 0) && allowMove) // Nếu vị trí Knight != vị trí Enemy thì di chuyển đến Enemy
+                if (transform.position != target.transform.position + new Vector3(-0.2f, 0, 0) && allowMove) 
                 {
                     transform.position = Vector2.MoveTowards(transform.position, target.transform.position + new Vector3(-0.2f, 0, 0), Time.deltaTime * moveSpeed);
                     _anim.SetInteger("Change", 1);
@@ -412,7 +409,7 @@ public class Hero : MonoBehaviour
                     AttackEnemy();
                 }
             }
-            else if (transform.localScale.x == -1)// neu huong mat ben trai
+            else if (transform.localScale.x == -1)
             {
                 if (transform.position != target.transform.position + new Vector3(0.2f, 0, 0) && allowMove)
                 {
@@ -494,7 +491,7 @@ public class Hero : MonoBehaviour
 
         }
     }
-    private void AttackEnemy() // Hàm tấn công Enemy
+    private void AttackEnemy() 
     {
         if (isAttacking == false)
         {
@@ -507,7 +504,7 @@ public class Hero : MonoBehaviour
                 _target.StartAttack = true;
             }
             int _random = Random.Range(0, 11);
-            if (_random == 9) // có 10% tỷ lệ thực hiện skill hồi máu
+            if (_random == 9) 
             {
                 if (currentHeal < maxHeal)
                 {
@@ -517,20 +514,20 @@ public class Hero : MonoBehaviour
                     slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);
                 }
             }
-            else if (_random == 4 || _random == 5 || _random == 6) // có 30% tỷ lệ chạy Animation chém bình thường
+            else if (_random == 4 || _random == 5 || _random == 6) 
             {
                 if (!isRange)
                     _anim.SetInteger("Change", 2);
                 else
                     _anim.SetInteger("Change", 3);
             }
-            else // có 60% tỷ lệ ra đòn chém đặc biệt
+            else 
             {
                 _anim.SetInteger("Change", 3);
             }
         }
     }
-    public void GiveDame()// Hàm Gây Dame cho mục tiêu
+    public void GiveDame()
     {
         if (_target != null)
         {
@@ -542,23 +539,23 @@ public class Hero : MonoBehaviour
             }
         }
     }
-    public void TakeDame(int _dame) // Hàm nhận Dame khi bị tấn công
+    public void TakeDame(int _dame) 
     {
         if (currentHeal > 0)
         {
             if (!isRange)
             {
                 int _ran = Random.Range(0, 10);
-                if (_ran != 5) // có tỷ lệ 90% là nhận dame
+                if (_ran != 5) 
                 {
                     int trueDame = _dame - armor;
-                    currentHeal -= trueDame;// tru mau
+                    currentHeal -= trueDame;
                     if (currentHeal > 0)
-                        slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);// thay doi thanh mau
+                        slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);
                     else
                         Die();
                 }
-                else // có 10% tỷ lệ ra skill chặn đòn đánh
+                else
                 {
                     isAttacking = true;
                     Invoke("setISAttackingfalse", 1f);
@@ -568,9 +565,9 @@ public class Hero : MonoBehaviour
             else
             {
                 int trueDame = _dame - armor;
-                currentHeal -= trueDame;// tru mau
+                currentHeal -= trueDame;
                 if (currentHeal > 0)
-                    slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);// thay doi thanh mau
+                    slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);
                 else
                     Die();
             }
@@ -578,10 +575,10 @@ public class Hero : MonoBehaviour
         else
             Die();
     }
-    private void RegendHeal() // thực hiện việc hồi máu dần dần
+    private void RegendHeal() 
     {
         timeregend += Time.deltaTime;
-        if (timeregend >= 3) // hồi máu sau 3s
+        if (timeregend >= 3)
         {
             if (currentHeal > 0 && currentHeal < maxHeal)
             {
@@ -596,15 +593,15 @@ public class Hero : MonoBehaviour
             }
         }
     }
-    private void Die() // chạy Animation Die và phá hủy obj
+    private void Die() 
     {
         if (isDead == true) return;
-        _anim.SetInteger("Change", 6); // chay Animation Die
+        _anim.SetInteger("Change", 6);
         isDead = true;
         SpawnLevel._instace.InstanceHero(timerespawn);
         Destroy(gameObject, 1f);
     }
-    private void RemoveNull() // xóa obj null khỏi List
+    private void RemoveNull() 
     {
         for (int i = 0; i < ListEnemy.Count; i++)
         {
@@ -620,5 +617,5 @@ public class Hero : MonoBehaviour
         else
             _canvas.transform.GetChild(5).gameObject.SetActive(true);
         waclick = true;
-    }// bật/tắt UI_info của Hero
+    }   
 }

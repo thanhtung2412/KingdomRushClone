@@ -11,23 +11,23 @@ public class KnightController : MonoBehaviour
     public float maxHeal;
     [SerializeField]
     public float currentHeal { get; set; }
-    public int timerespawn; // thời gian để hồi sinh
-    private Transform slider;// thanh máu của Knight
+    public int timerespawn;
+    private Transform slider;
     [HideInInspector]
-    public GameObject target = null; // mục tiêu cần tấn công
+    public GameObject target = null; 
     [HideInInspector]
-    public Animator _anim; // Animation của Knight
+    public Animator _anim; 
     [HideInInspector]
-    public bool allowMove = true;// nếu =true thì sẽ đc phép di chuyển đến Enemy
-    public Vector3 positionFlag { get; set; }// vị trí cờ Flag mà Knight sẽ phải di chuyển theo 
-    private Barrack _barrack; // Nhà sinh lính
-    public List<GameObject> ListEnemy = new List<GameObject>();// Danh Sách Enemy trong tầm đánh
+    public bool allowMove = true;
+    public Vector3 positionFlag { get; set; }
+    private Barrack _barrack;
+    public List<GameObject> ListEnemy = new List<GameObject>();
     [Header("Tầm phát hiện mục tiêu của Knight")]
     public float radius;
     private bool isDead = false;
 
-    private bool isAttacking = false;// có đang trong trạng thái tấn công hay không
-    private float timeregend = 0; // thời gian regend sau khi ko nhận sát thương
+    private bool isAttacking = false;
+    private float timeregend = 0; 
 
     public EnemyController _target = null;
     public bool MustReturn = false;
@@ -72,8 +72,8 @@ public class KnightController : MonoBehaviour
             dame += 2;
         }
 
-    }// Kiểm tra xem Knight đã được nâng cấp chưa
-    void UpdateTarget() // tim muc tieu de chon va tan cong
+    }
+    void UpdateTarget()
     {
         if (isDead) return;
         if (target == null || allowMove == true) MustReturn = false;
@@ -88,20 +88,19 @@ public class KnightController : MonoBehaviour
             }
 
             if (enemy == null) return;
-            float range = Vector2.Distance(transform.position, enemy.transform.position); // khoang cach giua Knight va Enemy
-            if (range <= radius && _enemycode.currentHeal > 0)// neu khoang cach < radius  thi them vao List
+            float range = Vector2.Distance(transform.position, enemy.transform.position);
+            if (range <= radius && _enemycode.currentHeal > 0)
             {
-                if (!ListEnemy.Contains(enemy) && enemy != null)// neu List chua co phan tu nay thi them vao
+                if (!ListEnemy.Contains(enemy) && enemy != null)
                 {
                     ListEnemy.Add(enemy);
                 }
-
             }
-            else // neu o ngoai radius thi loai khoi List
+            else 
                 ListEnemy.Remove(enemy);
         }
         RemoveNull();
-        // Chạy ListeEnemy xem phần tử nào đã lock target là chính Obj thì sẽ return
+       
         foreach (GameObject enemy in ListEnemy)
         {
             if (enemy == null) return;
@@ -113,8 +112,7 @@ public class KnightController : MonoBehaviour
             }
         }
         if (MustReturn == true) return;
-        //------KIỂM TRA LISTENEMY để chọn target-----------
-        if (ListEnemy.Count == 1) // neu trong List chi co 1 thi tan cong Enemy do
+        if (ListEnemy.Count == 1) 
         {
             isAttacking = false;
             if (ListEnemy[0] == null) return;
@@ -123,7 +121,7 @@ public class KnightController : MonoBehaviour
             {
                 MustReturn = true;
             }
-            else if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && ListEnemy[0].GetComponent<EnemyController>()._KnightToFight == null)// nếu ko phải đánh tới chết và enemy chưa locktarget thì locktarget cho enemy là chính obj
+            else if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && ListEnemy[0].GetComponent<EnemyController>()._KnightToFight == null)
             {
                 isAttacking = false;
                 ListEnemy[0].GetComponent<EnemyController>()._KnightToFight = this.gameObject;
@@ -138,7 +136,7 @@ public class KnightController : MonoBehaviour
             for (int i = 0; i <= 1; i++)
             {
 
-                if (CheckEnemyToFight4Ever(this, ListEnemy[i]) == true) // neu check duoc phai danh toi chet enemy nay thi tan cong
+                if (CheckEnemyToFight4Ever(this, ListEnemy[i]) == true) 
                 {
                     print("da chon duoc Enemy o vong for thu" + i);
                     SetTarget(ListEnemy[i]);
@@ -155,7 +153,6 @@ public class KnightController : MonoBehaviour
                 }
 
             }
-            // neu thay ca 2 deu da co Knight chon tan cong den chet thi chon con thu 2
             if (!CheckEnemyToFight4Ever(this, ListEnemy[0]) && !CheckEnemyToFight4Ever(this, ListEnemy[1]) && target == null)
             {
                 SetTarget(ListEnemy[1]);
@@ -167,11 +164,11 @@ public class KnightController : MonoBehaviour
             RemoveNull();
             isAttacking = false;
             if (ListEnemy[0] == null || ListEnemy[1] == null || ListEnemy[2] == null) return;
-            // Kiểm tra xem tất cả các Enemy nếu có 1 con locktarget là obj này thì break;
+
             foreach (GameObject enemy in ListEnemy)
             {
-                // RemoveNull();
-                if (CheckEnemyToFight4Ever(this, enemy)) // neu check fai danh toi chet thi tan cong enemy nay
+
+                if (CheckEnemyToFight4Ever(this, enemy)) 
                 {
                     SetTarget(enemy);
                     MustReturn = true;
@@ -179,11 +176,10 @@ public class KnightController : MonoBehaviour
                 }
             }
             if (MustReturn == true) return;
-            // Nếu ko bị lock thì chọn enemy để lock
             foreach (GameObject enemy in ListEnemy)
             {
                 // RemoveNull();
-                if (!CheckEnemyToFight4Ever(this, enemy) && enemy.GetComponent<EnemyController>()._KnightToFight == null) // neu check fai danh toi chet thi tan cong enemy nay
+                if (!CheckEnemyToFight4Ever(this, enemy) && enemy.GetComponent<EnemyController>()._KnightToFight == null) 
                 {
                     if (MustReturn == true) return;
                     enemy.GetComponent<EnemyController>()._KnightToFight = this.gameObject;
@@ -199,10 +195,10 @@ public class KnightController : MonoBehaviour
             }
         }
     }
-    private void RegendHeal()// Tự động hồi máu
+    private void RegendHeal()
     {
         timeregend += Time.deltaTime;
-        if (timeregend >= 3) // hồi máu sau 3s
+        if (timeregend >= 3)
         {
             if (currentHeal > 0 && currentHeal < maxHeal)
             {
@@ -223,34 +219,34 @@ public class KnightController : MonoBehaviour
         int layer = Mathf.Clamp(Mathf.Abs(50 - Mathf.RoundToInt((transform.position.y - 1) * 20)), 1, 150);
         _sprite.sortingOrder = layer;
         if (isDead) return;
-        if (target == null) // Nếu không có mục tiêu để tấn công 
+        if (target == null)
         {
-            if (gameObject.transform.position == positionFlag) // khi đang ở vị trí đặt cờ Flag
+            if (gameObject.transform.position == positionFlag) 
             {
-                if (!isAttacking) // neu dang ko tan cong sẽ chạy ANimation đứng im
+                if (!isAttacking)
                 {
                     _anim.SetInteger("Change", 0);
                 }
                 allowMove = true;
-                RegendHeal(); // tự động hồi máu
+                RegendHeal();
             }
         }
-        else // Nếu target được phát hiện
+        else 
         {
-            if (gameObject.transform.position == positionFlag) // khi dang o vi tri dat Flag
+            if (gameObject.transform.position == positionFlag) 
             {
                 allowMove = true;
             }
-            if (Vector2.Distance(transform.position, target.transform.position) > 1f) // neu enemy ra khoi tam cua Knight thi cho no = null
+            if (Vector2.Distance(transform.position, target.transform.position) > 1f) 
             {
                 target = null;
-                return; // moi them vao 4/5/2017
+                return;
             }
-            CheckFlipWith(target);// check quay mat theo huong enemy
+            CheckFlipWith(target);
             if (Vector2.Distance(transform.position, target.transform.position) > 1f) return;
-            if (transform.localScale.x == 1)// neu huong mat ben phai
+            if (transform.localScale.x == 1)
             {
-                if (transform.position != target.transform.position + new Vector3(-0.2f, 0, 0) && allowMove) // Nếu vị trí Knight != vị trí Enemy
+                if (transform.position != target.transform.position + new Vector3(-0.2f, 0, 0) && allowMove)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, target.transform.position + new Vector3(-0.2f, 0, 0), Time.deltaTime * moveSpeed);
                     _anim.SetInteger("Change", 1);
@@ -264,7 +260,7 @@ public class KnightController : MonoBehaviour
                     AttackEnemy();
                 }
             }
-            else if (transform.localScale.x == -1)// neu huong mat ben trai
+            else if (transform.localScale.x == -1)
             {
                 if (transform.position != target.transform.position + new Vector3(0.2f, 0, 0) && allowMove)
                 {
@@ -282,7 +278,7 @@ public class KnightController : MonoBehaviour
             }
         }
     }
-    public void CheckFlipWith(GameObject enemy)// check xem quay trái/ phải theo mục tiêu
+    public void CheckFlipWith(GameObject enemy)
     {
         if (transform.position.x <= enemy.transform.position.x)
         {
@@ -301,43 +297,42 @@ public class KnightController : MonoBehaviour
             }
         }
     }
-    private void SetTarget(GameObject enemy)// đặt giá trị cho biến target, là mục tiêu cần tấn công
+    private void SetTarget(GameObject enemy)
     {
         target = enemy;
         _target = target.GetComponent<EnemyController>();
     }
-    private void AttackEnemy() // Hàm tấn công Enemy
+    private void AttackEnemy()
     {
         if (isAttacking == false)
         {
             isAttacking = true;
             SoundTower._instance.KnightFight();
-            //--------Bat enemy đứng lại-------
+  
             if (target.GetComponent<EnemyController>().StartAttack == false)
             {
                 target.GetComponent<EnemyController>().StartAttack = true;
             }
-            //---chay Anim tan cong-----------
             _anim.SetInteger("Change", 2);
             Invoke("setISAttackingfalse", 1f);
         }
     }
-    private void setISAttackingfalse()// đặt giá trị isAttacking= false
+    private void setISAttackingfalse()
     {
         isAttacking = false;
         _anim.SetInteger("Change", 0); 
     }
-    private bool CheckEnemyToFight4Ever(KnightController knight, GameObject enemy)// Kiểm tra xem có phải đánh nhau tới chết với mục tiêu này ko
+    private bool CheckEnemyToFight4Ever(KnightController knight, GameObject enemy)
     {
         GameObject KnightToFight = enemy.GetComponent<EnemyController>()._KnightToFight;
-        if (KnightToFight == knight.gameObject) // neu Nếu KnightToFight ko phải là Obj này
+        if (KnightToFight == knight.gameObject)
         {
             return true;
         }
         else
             return false;
     }
-    public void GiveDame()// Hàm gây Dame cho Enemy
+    public void GiveDame()
     {
         if (_target != null)
         {
@@ -350,14 +345,14 @@ public class KnightController : MonoBehaviour
         }
         else return;
     }
-    public void TakeDame(int _dame)//Hàm nhận Dame từ Enemy
+    public void TakeDame(int _dame)
     {
         if (currentHeal > 0)
         {
             int trueDame = _dame - armor;
-            currentHeal -= trueDame;// tru mau
+            currentHeal -= trueDame;
             if (currentHeal > 0)
-                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);// thay doi thanh mau
+                slider.transform.localScale = new Vector3((1 / maxHeal) * currentHeal, transform.localScale.y, transform.localScale.z);
             else
                 Die();
         }
@@ -368,7 +363,7 @@ public class KnightController : MonoBehaviour
     {
         isDead = true;
         _barrack.StartRespawn(timerespawn);
-        _anim.SetInteger("Change", 3); // chay Animation Die
+        _anim.SetInteger("Change", 3);
         Destroy(gameObject, 1f);
     }
     private void RemoveNull()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boom_Explosion : MonoBehaviour
 {
-
     public GameObject[] booms;
     public float speed;
     public float radius;
@@ -14,8 +13,7 @@ public class Boom_Explosion : MonoBehaviour
     {
         Invoke("onDestroy", 1f);
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
     {
 		foreach(GameObject boom in booms)
